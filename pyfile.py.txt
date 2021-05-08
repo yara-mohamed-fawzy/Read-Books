@@ -1,0 +1,33 @@
+bookk = open("book2.txt",'r',encoding = "utf8")
+book2 = bookk.read()
+txtt = book2.lower()
+y= txtt.split()
+import string
+table = str.maketrans('', '',string.punctuation)
+words= [w.translate(table) for w in y]
+words = [word.strip('—,”,—,],[,“ ,... ') for word in words]
+import nltk
+nltk.download('stopwords')
+from nltk.corpus import stopwords
+stop_words = set(stopwords.words('english'))
+data1 = [w for w in words if not w in stop_words]
+book = open("boook.txt",'r',encoding = "utf8")
+book1 = book.read()
+txt = book1.lower()
+y= txt.split()
+import string
+table = str.maketrans('', '',string.punctuation)
+worddd= [w.translate(table) for w in y]
+worddd = [word.strip('—,”,—,],[,“') for word in worddd]
+import nltk
+nltk.download('stopwords')
+from nltk.corpus import stopwords
+stop_words = set(stopwords.words('english'))
+data2 = [w for w in worddd if not w in stop_words]
+a = set(data1)
+b = set(data2)
+t=a.intersection(b)
+print(t)
+
+
+
